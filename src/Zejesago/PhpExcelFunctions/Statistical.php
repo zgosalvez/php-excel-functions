@@ -96,7 +96,7 @@ class Statistical {
 
     /**
      * General remarks:
-     *  + RANK.EQ gives duplicate numbers the same rank. However, the presence
+     *  + rankEq gives duplicate numbers the same rank. However, the presence
      *    of duplicate numbers affects the ranks of subsequent numbers. For
      *    example, in a list of integers sorted in ascending order, if the
      *    number 10 appears twice and has a rank of 5, then 11 would have a rank
@@ -104,13 +104,13 @@ class Statistical {
      *  + For some purposes you might want to use a definition of rank that
      *    takes ties into account. In the previous example, you would want a
      *    revised rank of 5.5 for the number 10. This can be done by adding the
-     *    following correction factor to the value returned by RANK.EQ. This
+     *    following correction factor to the value returned by rankEq. This
      *    correction factor is appropriate both for the case where rank is
      *    computed in descending order ( order = 0 or omitted) or ascending
      *    order ( order = nonzero value).
      *
-     * Correction factor for tied ranks=[COUNT(ref) + 1 – RANK.EQ(number,ref, 0)
-     * – RANK.EQ(number,ref, 1 )]/2.
+     * Correction factor for tied ranks=[count(ref) + 1 – rankEq(number,ref, 0)
+     * – rankEq(number,ref, 1 )]/2.
      *
      * @link   http://office.microsoft.com/en-001/mac-excel-help/rank-eq-function-HA102927980.aspx
      * @param  int|string $number the number whose rank you want to find.
