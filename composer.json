@@ -1,0 +1,21 @@
+{
+    "name": "zejesago/php-excel-functions",
+    "description": "This is a library of functions available from Microsoft Excel.",
+    "keywords": ["excel", "functions"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Zennon Gosalvez",
+            "email": "zgosalvez@alumni.ateneo.edu",
+            "homepage": "https://coderwall.com/zejesago"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Zejesago\\PhpExcelFunctions": "src/"
+        }
+    }
+}
