@@ -2,7 +2,7 @@
 
 use \Zejesago\PhpExcelFunctions\Statistical;
 
-class StatisticalTest extends TestCase {
+class StatisticalTest extends PHPUnit_Framework_TestCase {
 
     /**
      * Tests max
