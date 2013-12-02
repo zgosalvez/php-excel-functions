@@ -77,7 +77,7 @@ class Statistical {
             }
         }
 
-        $order ? asort($ref) : arsort($ref);
+        $order ? asort($ref, SORT_NUMERIC) : arsort($ref, SORT_NUMERIC);
 
         $indicesCount = count($indices);
 
