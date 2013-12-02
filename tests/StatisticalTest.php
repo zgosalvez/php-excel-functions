@@ -53,4 +53,54 @@ class StatisticalTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals(3, Statistical::rankAvg('1700', $stubs, 'false'));
     }
 
+    /**
+     * Tests rankEq
+     *
+     * @return void
+     */
+    public function testRankEq()
+    {
+        $stubs = array(
+            '1010',
+            1875,
+            1875,
+            1700,
+            1700,
+            1700,
+            'not numeric',
+        );
+
+        $this->assertEquals(6, Statistical::rankEq(1010, $stubs));
+        $this->assertEquals(1, Statistical::rankEq(1875, $stubs));
+        $this->assertEquals(1, Statistical::rankEq(1875, $stubs));
+        $this->assertEquals(3, Statistical::rankEq(1700, $stubs));
+        $this->assertEquals(3, Statistical::rankEq('1700', $stubs));
+        $this->assertEquals(3, Statistical::rankEq('1700', $stubs));
+        $this->assertFalse(Statistical::rankEq('not numeric', $stubs));
+
+        $this->assertEquals(1, Statistical::rankEq('1010', $stubs, 1));
+        $this->assertEquals(5, Statistical::rankEq(1875, $stubs, -1));
+        $this->assertEquals(5, Statistical::rankEq(1875, $stubs, -5.5));
+        $this->assertEquals(2, Statistical::rankEq(1700, $stubs, true));
+        $this->assertEquals(2, Statistical::rankEq('1700', $stubs, 'testing'));
+        $this->assertEquals(2, Statistical::rankEq('1700', $stubs, 'false'));
+
+        $stubs = array(
+            7,
+            3.5,
+            3.5,
+            1,
+            2,
+        );
+
+        $this->assertEquals(3, Statistical::rankEq(3.5, $stubs, 1));
+        $this->assertEquals(5, Statistical::rankEq(7, $stubs, 1));
+        $this->assertEquals(0.5, ((
+            count($stubs) + 1 - Statistical::rankEq(3.5, $stubs, 0) - Statistical::rankEq(3.5, $stubs, 1)
+            ) / 2));
+        $this->assertEquals(0, ((
+            count($stubs) + 1 - Statistical::rankEq(2, $stubs, 0) - Statistical::rankEq(2, $stubs, 1)
+            ) / 2));
+    }
+
 }
