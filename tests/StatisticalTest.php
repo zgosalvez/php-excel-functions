@@ -14,6 +14,7 @@ class StatisticalTest extends PHPUnit_Framework_TestCase {
     {
         $this->assertEquals(0, Statistical::max('not numeric'));
         $this->assertEquals(4, Statistical::max('4', '1', '2.5', '2.5', 'not numeric'));
+        $this->assertEquals(-1, Statistical::max('-4', '-1', '-2.5', '-2.5', 'not numeric'));
         $this->assertEquals(4, Statistical::max('4', 1, 2.5, 2.5, 'not numeric'));
         $this->assertEquals(4, Statistical::max(array('4', 1, 2.5, 2.5, 'not numeric')));
         $this->assertEquals(27, Statistical::max(10, 7, 9, 27, 2));
