@@ -8,6 +8,7 @@ class StatisticalTest extends PHPUnit_Framework_TestCase {
      * Tests max
      *
      * @return void
+     * @access public
      */
     public function testMax()
     {
@@ -24,6 +25,7 @@ class StatisticalTest extends PHPUnit_Framework_TestCase {
      * Tests rankAvg
      *
      * @return void
+     * @access public
      */
     public function testRankAvg()
     {
@@ -57,6 +59,7 @@ class StatisticalTest extends PHPUnit_Framework_TestCase {
      * Tests rankEq
      *
      * @return void
+     * @access public
      */
     public function testRankEq()
     {
