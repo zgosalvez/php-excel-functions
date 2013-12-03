@@ -30,7 +30,6 @@ class Statistical {
         foreach ($numbers as $key => $number) {
             if (is_array($number)) {
                 $numbers[$key] = call_user_func_array('self::max', $number);
-                $hasNumeric    = true;
             } elseif ( ! is_numeric($number)) {
                 unset($numbers[$key]);
             }
