@@ -19,6 +19,8 @@ class StatisticalTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals(27, Statistical::max(10, 7, 9, 27, 2));
         $this->assertEquals(27, Statistical::max(array(10, 7, 9, 27, 2)));
         $this->assertEquals(30, Statistical::max(array(10, 7, 9, 27, 2), 30));
+        $this->assertEquals(0, Statistical::max(array()));
+        $this->assertEquals(0, Statistical::max(array(), array(array())));
     }
 
     /**
